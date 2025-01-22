@@ -12,7 +12,7 @@ Este proyecto es una aplicación para organizar un juego de "Amigo Secreto", seg
 ## Tecnologías Usadas
 - **Lenguaje de Programación:** JavaScript
 - **Frontend:** HTML, CSS, JavaScript
-- **Control de Versiones:** Git
+- **Control de Versiones:** GitHub
 
 
 ## Uso
