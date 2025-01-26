@@ -1,18 +1,19 @@
 let amigos = [];
 
+// Función para limpiar el campo de texto
 function limpiar() {
     document.getElementById('amigo').value = '';
 }
 
-// agregar amigos al array a traves del input y el boton
+// Función para agregar un amigo a la lista
 function agregarAmigo() {
     let nombre = document.getElementById('amigo').value;
     if (nombre == '') {
-       alert('No puede ingresar un nombre vacío, por favor ingrese un nombre');
+       alert('Creo que olvidaste escribir el nombre de tu amigo');
     }
     else{
         if (amigos.includes(nombre)) {
-            alert('El nombre ya se encuentra en la lista de amigos');
+            alert('No todos tus amigos se pueden llamar igual. Por favor, escribe un nombre diferente');
             return;
         }
         else {
@@ -24,6 +25,7 @@ function agregarAmigo() {
     }
 }
 
+// Función para mostrar la lista de amigos
 function mostrarAmigos() {
     let lista = document.getElementById('listaAmigos');
     lista.innerHTML = ''; // Limpiar la lista antes de agregar nuevos elementos
@@ -34,13 +36,13 @@ function mostrarAmigos() {
     }
 }
 
-
+// Función para sortear un amigo
 function sortearAmigo() {
     if (amigos.length === 0) {
-        alert('La lista está vacía, agrega algunos amigos antes de comenzar el sorteo');
+        alert('No puedes iniciar el sorteo sin amigos. Por favor, agrega amigos a la lista');
         return;
     }
     let indiceAleatorio = Math.floor(Math.random() * amigos.length);
     let amigoSeleccionado = amigos[indiceAleatorio];
-    alert('El amigo seleccionado es: ' + amigoSeleccionado);
+    alert('Tendrás que hacerle un bonito regalo a: ' + amigoSeleccionado);
 }
