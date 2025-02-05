@@ -14,11 +14,11 @@
     <main class="main-content">
         <header class="header-banner">
             <h1 class="main-title">Juego del Amigo Secreto</h1>
-            <img src="assets/amigo-secreto.png" alt="Imagen representativa de amigo secreto">
+            <img src="assets/amigos.png" alt="Imagen representativa de amigo secreto" id="amigos">
         </header>
         
         <section class="input-section">
-            <h2 class="section-title">Escribe el nombre de tus amigos</h2>
+            <h2 class="section-title">Escribe el nombre de tus amigos:</h2>
             <div class="input-wrapper">
                 <input type="text" id="amigo" class="input-name" placeholder="Escribe un nombre">
                 <button class="button-add" onclick="agregarAmigo()">Agregar</button>
@@ -35,6 +35,17 @@
             </div>
         </section>
     </main>
+
+    <section class="modal" id="modal">
+        <div class="modal_container" id="modal_container">
+            <img src="./assets/regalos.png" alt="Regalos para amigo secreto" class="modal_image">
+            <h2 class="modal_title">¡Sorteo del amigo secreto!</h2>
+            <p class="modal_paragraph">Tendrás que hacerle un bonito regalo a: </p>
+            <a href="#" class="modal_close" onclick=cerrarModal() >Listo, puedes cerrar</a>
+        </div>
+    </section>
+
+    
 
     <script src="app.js" defer></script>
 </body>

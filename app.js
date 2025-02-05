@@ -1,5 +1,19 @@
 let amigos = [];
 
+const modal = document.querySelector('.modal');
+const modalText = document.querySelector('.modal_paragraph');
+
+// Función para mostrar el modal
+function mostrarModal() {
+    modal.classList.add('modal--show');
+}
+
+// Función para cerrar el modal
+function cerrarModal() {
+    modal.classList.remove('modal--show');
+}
+
+
 // Función para limpiar el campo de texto
 function limpiar() {
     document.getElementById('amigo').value = '';
@@ -8,12 +22,15 @@ function limpiar() {
 // Función para agregar un amigo a la lista
 function agregarAmigo() {
     let nombre = document.getElementById('amigo').value;
+    nombre = nombre[0].toUpperCase() + nombre.slice(1).toLowerCase();
     if (nombre == '') {
-       alert('Creo que olvidaste escribir el nombre de tu amigo');
+        modalText.textContent = "Creo que olvidaste escribir el nombre de tu amigo";
+        mostrarModal();
     }
     else{
         if (amigos.includes(nombre)) {
-            alert('No todos tus amigos se pueden llamar igual. Por favor, escribe un nombre diferente');
+            modalText.textContent = nombre + " ya está en la lista, intenta con un nombre diferente o pensaremos que te quedaste sin amigos";
+            mostrarModal();
             return;
         }
         else {
@@ -36,13 +53,17 @@ function mostrarAmigos() {
     }
 }
 
+
 // Función para sortear un amigo
 function sortearAmigo() {
     if (amigos.length === 0) {
-        alert('No puedes iniciar el sorteo sin amigos. Por favor, agrega amigos a la lista');
+        modalText.textContent = "No puedes iniciar el sorteo sin amigos. Por favor, agrega amigos a la lista";
+        mostrarModal();
         return;
     }
     let indiceAleatorio = Math.floor(Math.random() * amigos.length);
     let amigoSeleccionado = amigos[indiceAleatorio];
-    alert('Tendrás que hacerle un bonito regalo a: ' + amigoSeleccionado);
+    console.log(amigoSeleccionado);
+    modalText.textContent = "Tendrás que hacerle un bonito regalo a: " + amigoSeleccionado;
+    mostrarModal();
 }
